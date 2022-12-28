@@ -8,6 +8,9 @@ const CalculadoraProvider = (props)=>{
     const digitosMaximos = 12;
 
     const [visor, setVisor] = useState('0');
+    const [buffer, setBuffer] = useState( [] );
+    const [limpiarVisor, setLimpiarVisor] = useState(false);
+
 
     const numberPress = (number) => { 
 
@@ -20,41 +23,105 @@ const CalculadoraProvider = (props)=>{
 
     const ingresarDigito = (digito) => { 
 
-        if( visor.length < digitosMaximos ){
+            if( limpiarVisor ){
 
-            if( digito == "." ){
-
-                if( visor.indexOf(".") == -1 ){
+                setLimpiarVisor( false );
+                if( isNaN( digito ) ){
                     setVisor( visor + digito );
+                }
+                else{
+                    setVisor( digito.toString() );
                 }
             }
             else{
-                digito = parseInt( digito );
-                if( ! isNaN( digito ) ){
 
-                    if( visor == "0" ){
-                        setVisor( digito.toString() )
+                if( visor.length < digitosMaximos ){
+                    if( digito == "." ){
+
+                        if( visor.indexOf(".") == -1 ){
+                            setVisor( visor + digito );
+                        }
                     }
                     else{
-                        setVisor( visor + digito.toString() );
-                    }
+                        digito = parseInt( digito );
+                        if( ! isNaN( digito ) ){
 
+                            if( visor == "0" ){
+                                setVisor( digito.toString() )
+                            }
+                            else{
+                                setVisor( visor + digito.toString() );
+                            }
+
+                        }
+                    }
                 }
             }
-        }
+        
     }
 
-              
-    const seleccionarAccion = (accion) => { 
 
-        switch ( accion) {
-            case 'ac':
-                setVisor( "0" );
-                
+    const sumar = ( a, b ) => {
+
+        return( a + b );
+
+    }
+
+    const restar = ( a, b ) => {
+
+        return( a - b );
+
+    }
+              
+    const procesoBuffer = () => {
+
+        let resultado = 0;
+        switch ( buffer[1] ) {
+            case '+':
+                resultado = sumar( buffer[0], buffer[2] );
+                break;
+            
+            case '-':
+                resultado = restar( buffer[0], buffer[2] );
                 break;
         
             default:
                 break;
+        }
+
+        buffer.length = 0;
+        buffer.push( resultado ) ;
+        setVisor( resultado.toString() );
+
+    }
+
+    const seleccionarAccion = (accion) => { 
+
+        if( accion == 'ac' ){
+            setVisor( "0" );
+            buffer.length = 0;
+           
+        }
+        else if( accion == "="){
+            buffer.push( parseFloat( visor ) );
+            procesoBuffer();  
+            buffer.length = 0;
+            setLimpiarVisor(true);
+        }
+        else{
+            
+            if( buffer.length == 2 ){
+                buffer.push( parseFloat( visor ) );
+                procesoBuffer();            
+
+            }
+            else{
+                buffer.push( parseFloat( visor ) ) ;
+                
+            }
+          
+            buffer.push( accion ) ;
+            setLimpiarVisor(true);
         }
 
     }

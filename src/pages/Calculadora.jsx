@@ -50,15 +50,15 @@ const Calculadora = () => {
                         <button className="tecla">x<sup>3</sup></button>
                         <button className="tecla">/</button>
                         <button className="tecla">*</button>
-                        <button className="tecla">-</button>
-                        <button className="tecla">+</button>
+                        <BotonAccion css="tecla" valor="-" label="-" />
+                        <BotonAccion css="tecla" valor="+" label="+" />
                     </div>
                     <div className="col-md-2  col-centered teclas">
                         <button className="tecla">&radic;</button>
                         <button className="tecla"><sup>3</sup>&radic;</button>
                         <button className="tecla">%</button>
                         <button className="tecla">log</button>
-                        <BotonAccion valor="ac" label="AC" />
+                        <BotonAccion css="tecla" valor="ac" label="AC" />
                         <button className="tecla">MR</button>
                     </div>
                     <div className="col-md-2  col-centered teclas">
@@ -66,7 +66,8 @@ const Calculadora = () => {
                         <button className="tecla">x<sup>n</sup></button>
                         <button className="tecla">ln</button>
                         <button className="tecla">e</button>
-                        <button className="tecla-igual">=</button>
+                        <BotonAccion css="tecla-igual" valor="=" label="=" />
+
                         
                     </div>
                 </div>

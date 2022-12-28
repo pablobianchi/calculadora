@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { CalculadoraContext } from "../context/CalculadoraProvider";
 
-function BotonAccion({valor,label}) {
+function BotonAccion({valor,label,css}) {
 
   const {seleccionarAccion} = useContext( CalculadoraContext );
 
@@ -12,7 +12,7 @@ function BotonAccion({valor,label}) {
   };
 
     return (
-        <button className="tecla" onClick={presionar} value={valor}>{label}</button>
+        <button className={(css == undefined ) ? 'tecla' : css } onClick={presionar} value={valor}>{label}</button>
     );
 }
 
