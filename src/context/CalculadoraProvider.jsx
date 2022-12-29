@@ -72,6 +72,18 @@ const CalculadoraProvider = (props)=>{
         return( a - b );
 
     }
+
+    const multiplicar = ( a, b ) => {
+
+        return( a * b );
+
+    }
+
+    const dividir = ( a, b ) => {
+
+        return( a / b );
+
+    }
               
     const procesoBuffer = () => {
 
@@ -84,14 +96,34 @@ const CalculadoraProvider = (props)=>{
             case '-':
                 resultado = restar( buffer[0], buffer[2] );
                 break;
+
+            case '*':
+                resultado = multiplicar( buffer[0], buffer[2] );
+                break;
+
+            case '/':
+                resultado = dividir( buffer[0], buffer[2] );
+                break;
         
             default:
                 break;
         }
 
         buffer.length = 0;
-        buffer.push( resultado ) ;
-        setVisor( resultado.toString() );
+
+        if( resultado.toString().length > digitosMaximos ){
+
+            setVisor( "--ERROR--" );
+            setLimpiarVisor( true );
+
+        }
+        else{
+            buffer.push( resultado ) ;
+            setVisor( resultado.toString() );
+        }
+
+
+       
 
     }
 

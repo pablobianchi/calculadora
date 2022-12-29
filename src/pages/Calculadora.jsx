@@ -48,8 +48,8 @@ const Calculadora = () => {
                     <div className="col-md-2  col-centered teclas">
                         <button className="tecla">x<sup>2</sup></button>
                         <button className="tecla">x<sup>3</sup></button>
-                        <button className="tecla">/</button>
-                        <button className="tecla">*</button>
+                        <BotonAccion css="tecla" valor="/" label="/" />
+                        <BotonAccion css="tecla" valor="*" label="*" />
                         <BotonAccion css="tecla" valor="-" label="-" />
                         <BotonAccion css="tecla" valor="+" label="+" />
                     </div>
