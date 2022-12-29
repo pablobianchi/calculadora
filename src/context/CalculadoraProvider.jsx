@@ -12,15 +12,6 @@ const CalculadoraProvider = (props)=>{
     const [limpiarVisor, setLimpiarVisor] = useState(false);
 
 
-    const numberPress = (number) => { 
-
-        if( visor.length < digitosMaximos ){
-            setVisor( visor + number );
-        }
-
-    }
-
-
     const ingresarDigito = (digito) => { 
 
             if( limpiarVisor ){
@@ -61,6 +52,7 @@ const CalculadoraProvider = (props)=>{
     }
 
 
+    //OPERACIONES
     const sumar = ( a, b ) => {
 
         return( a + b );
@@ -84,7 +76,8 @@ const CalculadoraProvider = (props)=>{
         return( a / b );
 
     }
-              
+    //FIN OPERACIONES          
+
     const procesoBuffer = () => {
 
         let resultado = 0;

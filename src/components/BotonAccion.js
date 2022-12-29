@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { CalculadoraContext } from "../context/CalculadoraProvider";
+import Swal from "sweetalert2";
 
 function BotonAccion({valor,label,css}) {
 
@@ -7,7 +8,13 @@ function BotonAccion({valor,label,css}) {
 
   const presionar = (e) => {
 
-    seleccionarAccion( e.target.value );
+    if( e.target.value == "" ){
+      Swal.fire("Pendiente de Desarrollo");
+    }
+    else{
+      seleccionarAccion( e.target.value );
+    }
+    
 
   };
 

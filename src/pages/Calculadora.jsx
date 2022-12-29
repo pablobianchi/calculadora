@@ -21,16 +21,16 @@ const Calculadora = () => {
                 <div className="row teclado">
 
                     <div className="col-md-2  col-centered teclas">
-                        <button className="tecla">(</button>
-                        <button className="tecla">sin</button>
+                        <BotonAccion css="tecla" valor="" label="(" />
+                        <BotonAccion css="tecla" valor="" label="Sin" />
                         <BotonDigito valor="1" />
                         <BotonDigito valor="4" />
                         <BotonDigito valor="7" />
                         <BotonDigito valor="." />
                     </div>
                     <div className="col-md-2  col-centered teclas">
-                        <button className="tecla">)</button>
-                        <button className="tecla">cos</button>
+                        <BotonAccion css="tecla" valor="" label=")" />
+                        <BotonAccion css="tecla" valor="" label="cos" />
                         <BotonDigito valor="2" />
                         <BotonDigito valor="5" />
                         <BotonDigito valor="8" />
@@ -38,37 +38,35 @@ const Calculadora = () => {
                         
                     </div>
                     <div className="col-md-2  col-centered teclas">
-                        <button className="tecla">x!</button>
-                        <button className="tecla">tg</button>
+                        <BotonAccion css="tecla" valor="" label="x!" />
+                        <BotonAccion css="tecla" valor="" label="tg" />
                         <BotonDigito valor="3" />
                         <BotonDigito valor="6" />
                         <BotonDigito valor="9" />
-                        <button className="tecla">&pi;</button>
+                        <BotonAccion css="tecla" valor="" label="&pi;" />
                     </div>
                     <div className="col-md-2  col-centered teclas">
-                        <button className="tecla">x<sup>2</sup></button>
-                        <button className="tecla">x<sup>3</sup></button>
+                        <BotonAccion css="tecla" valor="" label="x2" />
+                        <BotonAccion css="tecla" valor="" label="x3" />
                         <BotonAccion css="tecla" valor="/" label="/" />
                         <BotonAccion css="tecla" valor="*" label="*" />
                         <BotonAccion css="tecla" valor="-" label="-" />
                         <BotonAccion css="tecla" valor="+" label="+" />
                     </div>
                     <div className="col-md-2  col-centered teclas">
-                        <button className="tecla">&radic;</button>
-                        <button className="tecla"><sup>3</sup>&radic;</button>
-                        <button className="tecla">%</button>
-                        <button className="tecla">log</button>
+                        <BotonAccion css="tecla" valor="" label="&radic;" />
+                        <BotonAccion css="tecla" valor="" label="3&radic;" />
+                        <BotonAccion css="tecla" valor="" label="%" />
+                        <BotonAccion css="tecla" valor="" label="log" />
                         <BotonAccion css="tecla" valor="ac" label="AC" />
-                        <button className="tecla">MR</button>
+                        <BotonAccion css="tecla" valor="" label="MR" />
                     </div>
                     <div className="col-md-2  col-centered teclas">
-                        <button className="tecla"><sup>n</sup>&radic;</button>
-                        <button className="tecla">x<sup>n</sup></button>
-                        <button className="tecla">ln</button>
-                        <button className="tecla">e</button>
+                        <BotonAccion css="tecla" valor="" label="n&radic;" />
+                        <BotonAccion css="tecla" valor="" label="xn" />
+                        <BotonAccion css="tecla" valor="" label="ln" />
+                        <BotonAccion css="tecla" valor="" label="e" />
                         <BotonAccion css="tecla-igual" valor="=" label="=" />
-
-                        
                     </div>
                 </div>
             </div>
